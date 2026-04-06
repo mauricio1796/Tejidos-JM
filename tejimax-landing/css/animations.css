@@ -1,0 +1,717 @@
+/* ================================================
+   TECHMAX SWEATERS — ANIMACIONES Y TRANSICIONES
+   animations.css
+   ================================================ */
+
+/* ------------------------------------------------
+   1. KEYFRAMES PRINCIPALES
+   ------------------------------------------------ */
+
+/* Badge flotante del hero */
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-10px) rotate(0deg); }
+}
+
+/* Indicador de scroll */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Punto dentro del indicador de scroll */
+@keyframes scroll-dot {
+  0%   { top: 6px; opacity: 1; }
+  80%  { top: 20px; opacity: 0; }
+  100% { top: 6px; opacity: 0; }
+}
+
+/* Pulso WhatsApp */
+@keyframes whatsapp-pulse {
+  0%   { transform: scale(1); opacity: 0.6; }
+  70%  { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Rotacion de icono de carga */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Aparecer con fade */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Aparecer desde abajo */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aparecer desde la izquierda */
+@keyframes fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aparecer desde la derecha */
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Escala desde pequeño */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Parpadeo suave para urgencia */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+/* Shimmer para skeleton loaders */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Ondas en el hero (particulas) */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) rotate(120deg);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(10px) translateX(-10px) rotate(240deg);
+    opacity: 0.2;
+  }
+}
+
+/* Linea del proceso (dibujarse) */
+@keyframes line-draw {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Numero del contador subiendo */
+@keyframes counter-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); color: var(--amarillo); }
+  100% { transform: scale(1); }
+}
+
+/* Entrada del formulario al hacer focus */
+@keyframes input-focus-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(242,197,61,0.4); }
+  100% { box-shadow: 0 0 0 8px rgba(242,197,61,0); }
+}
+
+/* Texto letra por letra (clip path reveal) */
+@keyframes clip-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* Rotacion de icono FAQ */
+@keyframes rotate-45 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(45deg); }
+}
+
+/* Expandir altura para acordeon */
+@keyframes accordion-open {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+/* Contraer altura para acordeon */
+@keyframes accordion-close {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+
+/* ------------------------------------------------
+   2. CLASES DE ANIMACION REUTILIZABLES
+   ------------------------------------------------ */
+
+/* Animaciones de entrada (aplicadas via JS al entrar en viewport) */
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-right {
+  animation: fade-right 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-left {
+  animation: fade-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Delays para stagger */
+.delay-100  { animation-delay: 0.1s; }
+.delay-200  { animation-delay: 0.2s; }
+.delay-300  { animation-delay: 0.3s; }
+.delay-400  { animation-delay: 0.4s; }
+.delay-500  { animation-delay: 0.5s; }
+.delay-600  { animation-delay: 0.6s; }
+.delay-700  { animation-delay: 0.7s; }
+.delay-800  { animation-delay: 0.8s; }
+
+/* Elemento visible vs oculto (para GSAP/AOS) */
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ------------------------------------------------
+   3. ANIMACIONES DEL HERO
+   ------------------------------------------------ */
+
+/* Estado inicial para los items del hero (animados via GSAP) */
+[data-hero-item] {
+  opacity: 0;
+}
+
+/* Particulas CSS del hero (complementarias al canvas JS) */
+.hero-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amarillo);
+  opacity: 0;
+  animation: particle-float 6s ease-in-out infinite;
+  will-change: auto;
+}
+
+.hero-particle:nth-child(1)  { top: 15%; left: 10%; animation-delay: 0s; animation-duration: 7s; }
+.hero-particle:nth-child(2)  { top: 30%; left: 85%; animation-delay: 1s; animation-duration: 6s; }
+.hero-particle:nth-child(3)  { top: 60%; left: 15%; animation-delay: 2s; animation-duration: 8s; }
+.hero-particle:nth-child(4)  { top: 75%; left: 70%; animation-delay: 0.5s; animation-duration: 5s; }
+.hero-particle:nth-child(5)  { top: 45%; left: 50%; animation-delay: 3s; animation-duration: 9s; }
+.hero-particle:nth-child(6)  { top: 20%; left: 60%; animation-delay: 1.5s; animation-duration: 6.5s; }
+
+/* Hilo decorativo CSS */
+.hero-thread {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(242,197,61,0.3), transparent);
+  animation: particle-float 8s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+.hero-thread:nth-child(1) { height: 80px; top: 20%; left: 8%; animation-delay: 0.3s; }
+.hero-thread:nth-child(2) { height: 120px; top: 40%; left: 88%; animation-delay: 1.2s; }
+.hero-thread:nth-child(3) { height: 60px; top: 65%; left: 25%; animation-delay: 2.1s; }
+
+
+/* ------------------------------------------------
+   4. ANIMACIONES DE BOTONES
+   ------------------------------------------------ */
+
+/* Efecto de ondas al hacer click */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* CTA sticky mobile: aparece/desaparece */
+.mobile-cta-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: calc(var(--z-float) - 100);
+  padding: 1rem 1.5rem;
+  background: var(--azul-noche);
+  border-top: 2px solid var(--amarillo);
+  transform: translateY(100%);
+  transition: transform var(--transition-normal);
+}
+
+.mobile-cta-sticky.visible {
+  transform: translateY(0);
+}
+
+/* Spinner del boton de envio */
+.fa-spin {
+  animation: spin 1s linear infinite;
+}
+
+
+/* ------------------------------------------------
+   5. ANIMACIONES DE TARJETAS
+   ------------------------------------------------ */
+
+/* Hover 3D en benefit cards */
+.benefit-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Transicion suave del borde superior */
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--amarillo), var(--amarillo-dark));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Efecto de brillo en tarjetas (shine effect) */
+.benefit-card__shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255,255,255,0.05) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) rotate(0deg);
+  transition: transform 0s;
+  pointer-events: none;
+}
+
+.benefit-card:hover .benefit-card__shine {
+  transform: translateX(100%) rotate(0deg);
+  transition: transform 0.6s ease;
+}
+
+
+/* ------------------------------------------------
+   6. ANIMACIONES DEL PROCESO
+   ------------------------------------------------ */
+
+/* Numero del paso: efecto de entrada */
+.process__step-number {
+  position: relative;
+}
+
+/* Anillo de animacion alrededor del numero */
+.process__step-number::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(242,197,61,0.3);
+  animation: step-ring 2s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.process__step:hover .process__step-number::before {
+  animation-play-state: running;
+}
+
+@keyframes step-ring {
+  0%   { transform: scale(1); opacity: 0.8; }
+  50%  { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* Linea del timeline animada (activada via ScrollTrigger) */
+.process__timeline-line {
+  position: absolute;
+  top: 2.5rem;
+  left: calc(100% / 8);
+  height: 2px;
+  background: var(--amarillo);
+  z-index: 0;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process__timeline-line.animated {
+  width: calc(100% - 100% / 4);
+}
+
+
+/* ------------------------------------------------
+   7. ANIMACIONES DEL FAQ
+   ------------------------------------------------ */
+
+/* Transicion suave de apertura/cierre del acordeon */
+.faq-item__answer {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease,
+    padding 0.3s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.faq-item__answer:not([hidden]) {
+  max-height: 400px;
+  opacity: 1;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+/* Oculto via CSS pero accesible para transition */
+.faq-item__answer[hidden] {
+  display: block !important;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+
+/* ------------------------------------------------
+   8. ANIMACION DEL FORMULARIO
+   ------------------------------------------------ */
+
+/* Shake en error de validacion */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
+  20%, 40%, 60%, 80%      { transform: translateX(6px); }
+}
+
+.form-input.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Efecto de exito en el formulario */
+@keyframes success-bounce {
+  0%   { transform: scale(0) rotate(-45deg); opacity: 0; }
+  50%  { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.form-success__icon i {
+  display: inline-block;
+  animation: success-bounce 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+
+/* ------------------------------------------------
+   9. ANIMACION DE CARGA (Loader)
+   ------------------------------------------------ */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--azul-noche);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--blanco);
+  letter-spacing: -0.02em;
+  animation: fade-in 0.5s ease forwards;
+}
+
+.loader-logo span {
+  color: var(--amarillo);
+}
+
+/* Barra de carga */
+.loader-bar {
+  width: 200px;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.loader-bar__fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--amarillo), var(--amarillo-light));
+  border-radius: var(--radius-full);
+  animation: loader-fill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loader-fill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* Hilo de tejer decorativo en el loader */
+.loader-thread {
+  width: 60px;
+  height: 3px;
+  background: var(--amarillo);
+  border-radius: var(--radius-full);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-thread::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+
+/* ------------------------------------------------
+   10. PARALLAX Y EFECTOS DE SCROLL
+   ------------------------------------------------ */
+
+/* Clase para elementos con parallax (aplicado via JS) */
+[data-parallax] {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Cursor custom sobre CTAs (activado via JS) */
+.cursor-custom {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--amarillo);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+  mix-blend-mode: difference;
+  opacity: 0;
+}
+
+.cursor-custom.visible {
+  opacity: 1;
+}
+
+.cursor-custom.expanded {
+  width: 70px;
+  height: 70px;
+  background: rgba(242,197,61,0.1);
+}
+
+
+/* ------------------------------------------------
+   11. SEPARADORES DE SECCION (SVG Dividers)
+   ------------------------------------------------ */
+
+/* Wave divisor entre hero y counters */
+.section-divider--wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.section-divider--wave svg {
+  display: block;
+  width: 100%;
+}
+
+/* Separador diagonal */
+.section-divider--diagonal {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Patron de tejido en separadores de seccion */
+.section-texture {
+  position: relative;
+}
+
+.section-texture::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23f5f5f5' d='M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z'/%3E%3C/svg%3E") no-repeat bottom;
+  background-size: cover;
+}
+
+
+/* ------------------------------------------------
+   12. MICROINTERACCIONES
+   ------------------------------------------------ */
+
+/* Links de navegacion: subrayado animado */
+.nav__link {
+  position: relative;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2px;
+  background: var(--amarillo);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-normal);
+  border-radius: var(--radius-full);
+}
+
+.nav__link:hover::after,
+.nav__link.active::after {
+  transform: scaleX(1);
+}
+
+/* Stars animadas en testimonios */
+.testimonial-card__stars i {
+  animation: star-pop 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.testimonial-card__stars i:nth-child(1) { animation-delay: 0.0s; }
+.testimonial-card__stars i:nth-child(2) { animation-delay: 0.07s; }
+.testimonial-card__stars i:nth-child(3) { animation-delay: 0.14s; }
+.testimonial-card__stars i:nth-child(4) { animation-delay: 0.21s; }
+.testimonial-card__stars i:nth-child(5) { animation-delay: 0.28s; }
+
+@keyframes star-pop {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Contador: efecto pop al finalizar */
+.counter.done {
+  animation: counter-pop 0.4s ease;
+}
+
+/* Icono FAQ: transicion de + a x */
+.faq-item__icon {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease, color 0.2s ease;
+}
+
+/* Input focus: anillo de animacion */
+.form-input:focus {
+  animation: input-focus-ring 0.4s ease forwards;
+}
+
+/* Urgencia: parpadeo sutil */
+.lead-magnet__urgency {
+  animation: soft-pulse 3s ease-in-out infinite;
+}
+
+/* Header logo: hover */
+.header__logo:hover .logo-placeholder__text {
+  color: var(--amarillo);
+}
+
+/* Counter cards: icono animado en hover */
+.counter-card:hover .counter-card__icon {
+  animation: spin 0.8s ease-in-out;
+}
+
+/* Social proof hero: hover */
+.hero__social-proof:hover {
+  border-color: rgba(242,197,61,0.3);
+  background: rgba(255,255,255,0.1);
+  transition: all var(--transition-normal);
+}
