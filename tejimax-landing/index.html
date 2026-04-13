@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- =============================================
+       GOOGLE TAG MANAGER
+       INSTRUCCION: Reemplaza GTM-T348D68X con tu ID de GTM
+       Obtén tu ID en: https://tagmanager.google.com
+       ============================================= -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T348D68X');</script>
+  <!-- Fin GTM head -->
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-267WGDN8FM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-267WGDN8FM');
+  </script>
+  <!-- Fin GA4 -->
+
   <!-- SEO Principal -->
   <title>TechMax Sweaters | Fabricantes de Sweaters Personalizados en Colombia | +25 Años</title>
   <meta name="description" content="TechMax: Fabrica de sweaters personalizados con mas de 25 años de experiencia. Diseños exclusivos, calidad premium y entregas puntuales para empresas e instituciones en Colombia.">
@@ -111,38 +133,20 @@
     .hero { min-height: 100vh; display: flex; align-items: center; background: var(--azul-noche); position: relative; overflow: hidden; }
   </style>
 
-  <!-- Google Analytics 4 -->
-  <!-- INSTRUCCION: Reemplazar G-XXXXXXXXXX con tu ID de medicion de GA4 -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
-
-  <!-- Meta Pixel (Facebook/Instagram Ads) -->
-  <!-- INSTRUCCION: Reemplazar YOUR_PIXEL_ID con tu Meta Pixel ID -->
-  <!--
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-  </script>
-  -->
+  <!-- GA4 y Meta Pixel se configuran DENTRO de Google Tag Manager.
+       Ver guia completa en ANALYTICS.md -->
 
 </head>
 
 <body>
+
+  <!-- =============================================
+       GOOGLE TAG MANAGER — noscript fallback
+       INSTRUCCION: Reemplaza GTM-T348D68X con tu ID
+       ============================================= -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T348D68X"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Fin GTM body -->
 
   <!-- Hilo de costura decorativo (solo desktop, generado por thread-animation.js) -->
   <div id="sewing-thread-container" aria-hidden="true"></div>
@@ -267,21 +271,21 @@
           </a>
         </div>
 
-        <!-- Estadísticas -->
-        <div class="hero-split__stats hero-stats" aria-label="Cifras de confianza" data-hero-item>
+        <!-- Sellos de confianza -->
+        <div class="hero-split__stats hero-stats" aria-label="Razones para elegirnos" data-hero-item>
           <div class="hero-split__stat">
-            <span class="hero-split__stat-num stat-number" data-count="10000">+10K</span>
-            <span class="hero-split__stat-label">sweaters producidos</span>
+            <span class="hero-split__stat-num" aria-hidden="true">✓</span>
+            <span class="hero-split__stat-label">Envíos a todo el país</span>
           </div>
           <div class="hero-split__stat-divider" aria-hidden="true"></div>
           <div class="hero-split__stat">
-            <span class="hero-split__stat-num stat-number" data-count="500">+500</span>
-            <span class="hero-split__stat-label">clientes satisfechos</span>
+            <span class="hero-split__stat-num" aria-hidden="true">✓</span>
+            <span class="hero-split__stat-label">Stock disponible</span>
           </div>
           <div class="hero-split__stat-divider" aria-hidden="true"></div>
           <div class="hero-split__stat">
-            <span class="hero-split__stat-num stat-number">25+</span>
-            <span class="hero-split__stat-label">años de experiencia</span>
+            <span class="hero-split__stat-num" aria-hidden="true">✓</span>
+            <span class="hero-split__stat-label">Diseños personalizados</span>
           </div>
         </div>
 
@@ -1703,6 +1707,7 @@
     })();
   </script>
 
+  <script src="js/analytics.js"></script>
   <script src="js/testimonials.js" defer></script>
   <script src="js/thread-animation.js" defer></script>
   <script src="js/process-animation.js" defer></script>
